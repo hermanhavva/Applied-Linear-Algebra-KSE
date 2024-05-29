@@ -2,6 +2,24 @@ import numpy as np
 import math as m
 from enum import Enum
 
+def custom_transformation(transformation_matrix, my_object, dimension) -> np.array:
+    result = []
+
+    for vector in my_object:
+        result.append(np.dot(transformation_matrix, vector))
+    return np.array(result)
+
+def mirror_with_respect_to_XY_plane_3d(plane, my_object) -> np.array:
+    mirror_matrix = np.eye(3)
+
+    mirror_matrix[2][2] = -1
+
+    result = []
+    for vector in my_object:
+        result.append(np.dot(mirror_matrix, vector))
+
+    return np.array(result)
+
 
 def mirror_with_respect_to_axis_2d(axis, my_object) -> np.array:
     scale_matrix = np.eye(2)
