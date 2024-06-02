@@ -3,6 +3,7 @@ import math
 from enum import Enum
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
+import time
 
 def custom_transformation(transformation_matrix, my_object) -> np.array:
     result = []
@@ -146,11 +147,11 @@ fig1, ax1 = initialize_plot_window()
 fig2, ax2 = initialize_plot_window()
 
 # Custom function example
-custom_matrix_2d = np.array([[2, 0],
-                             [0, 1]])
-plot_vectors(vectors, ax1, "Initial Vectors", 1, 1)
-new_vectors = custom_transformation(custom_matrix_2d, vectors)
-plot_vectors(new_vectors, ax2, "Custom Vectors", 1,1)
+# custom_matrix_2d = np.array([[2, 0],
+#                              [0, 1]])
+# plot_vectors(vectors, ax1, "Initial Vectors", 1, 1)
+# new_vectors = custom_transformation(custom_matrix_2d, vectors)
+# plot_vectors(new_vectors, ax2, "Custom Vectors", 1,1)
 
 # Mirror 3d
 # fig1, ax1 = initialize_plot_window_3d()
@@ -177,10 +178,25 @@ plot_vectors(new_vectors, ax2, "Custom Vectors", 1,1)
 # new_vectors = change_scale(2, vectors, 2)
 # plot_vectors(new_vectors, ax2, "Scaled Vectors", 1,1)
 
+# Comparing the order and the result of linear transformation
+# plot_vectors(vectors, ax1, "Initial Vectors", 1, 1)
+# new_vectors = mirror_with_respect_to_axis_2d(Axis.X_axis, vectors)
+# plot_vectors(new_vectors, ax2, "Mirrored Vectors", 1,1)
+# plt.draw()
+# plt.pause(5)
+# ax1.cla()
+# ax2.cla()
+#
+# vectors = new_vectors
+#
+# custom_matrix_2d = np.array([[3, 5],
+#                              [2, 1]])
+# plot_vectors(vectors, ax1, "Initial Vectors", 1, 1)
+# new_vectors = custom_transformation(custom_matrix_2d, vectors)
+# plot_vectors(new_vectors, ax2, "Custom Vectors", 1,1)
 
 
 plt.draw()
-#plt.pause(5)
 
 # Keep the plot open
 plt.show()
