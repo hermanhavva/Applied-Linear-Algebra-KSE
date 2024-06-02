@@ -36,7 +36,6 @@ case the reverse transformation is performed by applying *A^(-1)*
 
 
 7.
- 
--If |det(A)| > 1: the object(volume of the object) scales up
+- If |det(A)| > 1: the object(volume of the object) scales up
 - If |det(A)| < 1: the object(volume of the object) scales down
-- If |det(A)| = 1: the object(volume) stays the same 
+- If |det(A)| = 1: the volume stays the same 
