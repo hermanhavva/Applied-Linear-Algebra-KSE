@@ -146,11 +146,11 @@ fig1, ax1 = initialize_plot_window()
 fig2, ax2 = initialize_plot_window()
 
 # Custom function example
-# custom_matrix_2d = np.array([[2, 0],
-#                              [0, 1]])
-# plot_vectors(vectors, ax1, "Initial Vectors", 1, 1)
-# new_vectors = custom_transformation(custom_matrix_2d, vectors)
-# plot_vectors(new_vectors, ax2, "Custom Vectors", 1,1)
+custom_matrix_2d = np.array([[2, 0],
+                             [0, 1]])
+plot_vectors(vectors, ax1, "Initial Vectors", 1, 1)
+new_vectors = custom_transformation(custom_matrix_2d, vectors)
+plot_vectors(new_vectors, ax2, "Custom Vectors", 1,1)
 
 # Mirror 3d
 # fig1, ax1 = initialize_plot_window_3d()
@@ -180,8 +180,7 @@ fig2, ax2 = initialize_plot_window()
 
 
 plt.draw()
-plt.pause(5)
-
+#plt.pause(5)
 
 # Keep the plot open
 plt.show()
