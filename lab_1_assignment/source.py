@@ -7,8 +7,12 @@ from mpl_toolkits.mplot3d import Axes3D
 def custom_transformation(transformation_matrix, my_object) -> np.array:
     result = []
 
-    for vector in my_object:
-        result.append(np.dot(transformation_matrix, vector))
+    try:
+        for vector in my_object:
+            result.append(np.dot(transformation_matrix, vector))
+    except:
+        print("Dimensions of vectors and matrix do not match")
+
     return np.array(result)
 
 def mirror_with_respect_to_XY_plane_3d(my_object) -> np.array:
@@ -104,25 +108,19 @@ def plot_vectors_3d(vectors, ax, title, x_scale, y_scale, z_scale):
     ax.set_zlabel('Z-axis')
     ax.set_title(title)
 
-def initialize_plot_window(x_lim=(-10, 10), y_lim=(-5, 5), x_scale=1, y_scale=1):
+def initialize_plot_window():
     fig, ax = plt.subplots()
-    ax.set_xlim(x_lim)
-    ax.set_ylim(y_lim)
-    ax.set_xticks(np.arange(x_lim[0], x_lim[1] + 1, x_scale))  # generates a sequence for ticks
-    ax.set_yticks(np.arange(y_lim[0], y_lim[1] + 1, y_scale))
-    ax.grid()
-    ax.set_xlabel('X-axis')
-    ax.set_ylabel('Y-axis')
     return fig, ax
 
 
-def plot_vectors(vectors, ax, title, x_scale, y_scale):
+
+def plot_vectors(vectors, ax, title, x_scale=1, y_scale=1):
     # Clear previous content
     ax.cla()
 
     # Plot the vectors using the quiver function
-    ax.quiver(np.zeros(len(vectors)), np.zeros(len(vectors)), vectors[:, 0], vectors[:, 1], angles='xy',
-              scale_units='xy', scale=1)
+    ax.quiver(np.zeros(len(vectors)), np.zeros(len(vectors)), vectors[:, 0], vectors[:, 1],
+              angles='xy', scale_units='xy', scale=1)
 
     # Set the grid scale
     ax.set_xticks(np.arange(-5, 6, x_scale))
@@ -134,16 +132,29 @@ def plot_vectors(vectors, ax, title, x_scale, y_scale):
     ax.set_ylabel('Y-axis')
     ax.set_title(title)
 
+
 # Create a NumPy array with vectors (each row is a vector)
-vectors = np.array([[2, 5], [1, 2], [1, 1.5], [1, 3], [0, -1], [-1, 1]])
+vectors = np.array([[2, 5],
+                    [1, 2],
+                    [1, 1.5],
+                    [1, 3],
+                    [0, -1],
+                    [-1, 1]])
 
 # Create a figure and axis
-fig1, ax1 = initialize_plot_window_3d()
-fig2, ax2 = initialize_plot_window_3d()
+fig1, ax1 = initialize_plot_window()
+fig2, ax2 = initialize_plot_window()
 
-
+# Custom function example
+# custom_matrix_2d = np.array([[2, 0],
+#                              [0, 1]])
+# plot_vectors(vectors, ax1, "Initial Vectors", 1, 1)
+# new_vectors = custom_transformation(custom_matrix_2d, vectors)
+# plot_vectors(new_vectors, ax2, "Custom Vectors", 1,1)
 
 # Mirror 3d
+# fig1, ax1 = initialize_plot_window_3d()
+# fig2, ax2 = initialize_plot_window_3d()
 # vectors_3d = np.array([[0, 0, 5], [0, 0, -5], [0,0,3]])
 # plot_vectors_3d(vectors_3d, ax1, "Initial Vectors", 1, 1, 1)
 # new_vectors = mirror_with_respect_to_XY_plane_3d(vectors_3d)
