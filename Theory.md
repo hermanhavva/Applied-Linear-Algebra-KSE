@@ -20,7 +20,12 @@ essentially contains the transformed basis vectors of the space **V** accordingl
 
 [sin(x), cos(x)]
 
-**counter clockwise** rotation; if the other *sin(x)* is negative it will give us the **clockwise** rotation;
+**-counter clockwise** rotation; if the other *sin(x)* is negative it will give us the **clockwise** rotation;
+
+**Good to know:**
+- det of rotation matrix = +-1
+- A^t * A = I; 
+- A^-1 = A^t (they are orthogonal)
 5. The order of applying the transformation matters as the matrix product **is not commutative:**
 
 Let *A*, *B* - square matrices, *v* - vector of space **V**, THEN
