@@ -39,6 +39,7 @@ Let *A*, *B* - square matrices, *v* - vector of space **V**, THEN
 If we know two components out of three => we can find the reverse transformation as it all comes to solving an equation, in general 
 case the reverse transformation is performed by applying *A^(-1)*
 
+However, if the transformation is not **bijection**(the information is lost) => it is not possible to perform reverse transformation without ambiguity.
 
 7.
 - If |det(A)| > 1: the object(volume of the object) scales up
